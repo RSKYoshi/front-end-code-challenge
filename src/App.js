@@ -1,12 +1,17 @@
 import './App.css';
-import {calendar} from './components/calendar';
+import {Calendar} from './components/calendar/calendar';
+import React from 'react';
 
 function App() {
   return (
-    <div className="App">
-          <p>Components Go Here</p>
-          <calendar />
-    </div>
+
+      <>
+          <div className="App">
+              {/*<calendar />*/}
+              <Calendar />
+          </div>
+      </>
+
   );
 }
 
