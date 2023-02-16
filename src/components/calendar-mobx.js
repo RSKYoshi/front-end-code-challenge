@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 // import {types} from "mobx-state-tree";
 
-
+//
 // method of making just 2 models for each row in calendar
 // declaring the shape of a node with the type `Calendar`
 // the types appear to just be for development
@@ -27,13 +27,13 @@ import React, {useState} from 'react';
 // const calendarGrid = calendarGrid.create({
 //     dayNames: types.a      rray()
 // })
-
-
-
-
-
-//models for each part of the calendar
-//optional=default values?
+//
+//
+//
+//
+//
+// models for each part of the calendar
+// optional=default values?
 // const calendarMonth = types.model("CalendarMonth",{
 //         month: types.optional(types.string, "Month")
 //     })
@@ -62,8 +62,8 @@ import React, {useState} from 'react';
 //     dayName: types.array(calendarDayNames),
 //     dayInt: types.array(calendarDayInt)
 // })
-
-//this is where the calendar instance is created
+//
+// this is where the calendar instance is created
 // export const calendarStore = CalendarStore.create({
 //         //is this where I loop over json data for the array?
 //         calendar: [
@@ -76,9 +76,9 @@ import React, {useState} from 'react';
 //             }
 //         ]
 //     })
-
-
-//instance of the calendar created here
+//
+//
+// instance of the calendar created here
 // let _calendarStore;
 // export const calendar = () => {
 //     //if there is no instance of the calendar, create one using this data
@@ -96,21 +96,21 @@ import React, {useState} from 'react';
 //             ]
 //         })
 //     }
-
-    // return (
-    //     <div>
-    //         <header>
-    //             <header></header>
-    //             <icon name="Forward button"></icon>
-    //             <icon name="Forward button"></icon>
-    //
-    //         </header>
-    //         <body>
-    //         {/*    calendar dayName*/}
-            // {/*    calendar dayInt*/}
-            // </body>
-        // </div>
-    // )
+//
+//     return (
+//         <div>
+//             <header>
+//                 <header></header>
+//                 <icon name="Forward button"></icon>
+//                 <icon name="Forward button"></icon>
+//
+//             </header>
+//             <body>
+//             {/*    calendar dayName*/}
+//             {/*    calendar dayInt*/}
+//             </body>
+//         </div>
+//     )
 // }
 
 

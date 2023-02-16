@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {YEARS} from "./constants";
 import {DateComponentMonth} from "./date";
 import {DateComponentYear} from "./date";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -18,8 +17,7 @@ export const Header = () => {
     }
 
     const buttonStyle = {
-        justifyContent: 'end',
-
+        marginLeft: 'auto',
     }
 
     return (
@@ -33,9 +31,10 @@ export const Header = () => {
                     <DateComponentYear />
                 </div>
                 <div style={buttonStyle}>
-                    <div><ArrowBackIosIcon /></div>
-                    <div><ArrowForwardIosIcon /></div>
+                    <ArrowBackIosIcon />
+                    <ArrowForwardIosIcon />
                 </div>
+
 
             </div>
         </header>

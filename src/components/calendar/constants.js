@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 
-export const YEARS =  [2023, 2024, 2025, 2026, 2027]
+// export const YEARS =  [2023, 2024, 2025, 2026, 2027]
    // function (startYear) {
    //     let currentYear = new Date().getFullYear(), years = [];
    //     startYear = startYear || 2000;
@@ -11,10 +11,9 @@ export const YEARS =  [2023, 2024, 2025, 2026, 2027]
    //      return years;
    //  }
 
+//
+// export const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+//
+// export const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 
-
-
-export const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-export const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
