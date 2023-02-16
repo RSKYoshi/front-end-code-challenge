@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
-import {DateComponentDay, WeekDayCard, getStartDay} from "./date"
+import {DateComponentDay, WeekDays, getStartDay} from "./date";
 
 
 export const Body = () => {
+
+
+
+
+
 
     const weekDayStyle = {
         display: 'flex',
@@ -11,10 +16,11 @@ export const Body = () => {
         width: '35.7vw'
     }
 
+
     return (
-        <div style={weekDayStyle}>
+    <div style={weekDayStyle}>
             <div>
-                <WeekDayCard />
+                <WeekDays />
             </div>
         </div>
     )

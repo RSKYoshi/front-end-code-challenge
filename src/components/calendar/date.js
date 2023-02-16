@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
+
 
 let newDate = new Date();
 let today = new Date();
@@ -7,6 +8,12 @@ let today = new Date();
 // function showTodayInt(){
 //     return todayInt;
 // }
+
+const highlightDay = {
+    // backgroundColor: 'blue'
+
+}
+
 
 export function DateComponentDay(){
     let day = newDate.getDay();
@@ -43,30 +50,87 @@ export function DateComponentMonth(){
         case 1:
             return 'February';
         case 2:
-            return 'January';
+            return 'March';
         case 3:
-            return 'February';
+            return 'April';
         case 4:
-            return 'January';
+            return 'May';
         case 5:
-            return 'February';
+            return 'June';
         case 6:
-            return 'January';
+            return 'July';
         case 7:
-            return 'February';
+            return 'August';
         case 8:
-            return 'January';
+            return 'September';
         case 9:
-            return 'February';
+            return 'October';
         case 10:
-            return 'January';
+            return 'November';
         case 11:
-            return 'February';
+            return 'December';
     }
 }
 
 //below I need to loop through days like cards (each one will have the static letter of the day, and also the corresponding integer);
-export function WeekDayCard(){
+export function WeekDays(){
+
+    let weekInt = getWeekInt();
+    console.log('current week is '+ weekInt);
+
+//getDate is the integer representation of todays date (15, etc). getDay is integer representation of how far into a week today is (0-6)
+    let firstDay = today.getDate()-today.getDay();
+    let secondDay = firstDay + 1;
+    let thirdDay = firstDay + 2;
+    let fourthDay = firstDay + 3;
+    let fifthDay = firstDay + 4;
+    let sixthDay = firstDay + 5;
+    let seventhDay = firstDay +6;
+
+    console.log(today.getDay());
+
+    const week = [firstDay, secondDay, thirdDay, fourthDay, fifthDay, sixthDay, seventhDay]
+    console.log(week);
+
+    [fifthDay, highlightCurrentDay] = useState(fifthDay)
+
+
+    let currentDayInt = today.getDate();
+
+    if(currentDayInt===firstDay){
+
+    }
+    console.log(currentDayInt);
+
+    function highlightCurrentDay() {
+        switch (week){
+            case currentDayInt===firstDay:
+                console.log('Sunday')
+                break;
+            // return document.querySelector('#firstDay').style('color','blue')
+//        need to add a style to #fDay
+//    need to highlight firstDay here
+            case currentDayInt===secondDay:
+                break;
+            case currentDayInt===thirdDay:
+                console.log('Tuesday')
+                break;
+            case currentDayInt===fourthDay:
+                // return document.querySelector('#fourthDay').style('color','blue')
+                console.log('Wednesday')
+                break;
+            case currentDayInt===fifthDay:
+                // [fifthDay, highlightDay] = useState(fifthDay)
+                break;
+            case currentDayInt===sixthDay:
+                console.log('Friday')
+                break;
+            case currentDayInt===seventhDay:
+                console.log('Saturday')
+                break;
+        }
+    }
+
     const cardStyle = {
         listStyle: 'none',
         display: 'flex',
@@ -87,37 +151,37 @@ export function WeekDayCard(){
                     <li style={dayCardStyle}>
                         <div>
                             <div>S</div>
-                            <div>{firstDay}</div>
+                            <div style={currentDayInt===firstDay ? {color: 'red'} : {firstDay} }>{firstDay}</div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
                         <div>
                             <div>M</div>
-                            <div>{secondDay}</div>
+                            <div style={currentDayInt===secondDay ? {color: 'red'} : {secondDay} }>{secondDay}</div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
                         <div>
                             <div>T</div>
-                            <div>{thirdDay}</div>
+                            <div style={currentDayInt===thirdDay ? {color: 'red'} : {thirdDay} }>{thirdDay}</div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
                         <div>
-                            <div>W</div>
-                            <div>{fourthDay}</div>
+                            <div id='fourthDay'>W</div>
+                            <div style={currentDayInt===fourthDay ? {color:'red'} : {fourthDay} }>{fourthDay}</div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
                         <div>
                             <div>T</div>
-                            <div>{fifthDay}</div>
+                            <div style={currentDayInt===fifthDay ? {color:'red'} : {fifthDay} }>{fifthDay}</div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
                         <div>
                             <div>F</div>
-                            <div>{sixthDay}</div>
+                            <div style={currentDayInt===sixthDay ? {color:'red'} : {sixthDay} }>{sixthDay}</div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
@@ -156,19 +220,22 @@ export function getWeekInt(){
     return result;
 }
 
-let weekInt = getWeekInt();
-console.log(weekInt);
-
-let firstDay = today.getDate()-today.getDay();
-let secondDay = firstDay + 1;
-let thirdDay = firstDay + 2;
-let fourthDay = firstDay + 3;
-let fifthDay = firstDay + 4;
-let sixthDay = firstDay + 5;
-let seventhDay = firstDay +6;
 
 
 
+
+
+
+
+
+function getCurrentDate(){
+    // Date.now()
+    let time = new Date().getTime(); // get your number
+    let date = new Date(time); // create Date object
+    console.log(date.toString());
+}
+
+getCurrentDate();
 
 // function getSundayFromWeekNum(weekNum, year) {
 //     let sunday = new Date(year, 0, (1 + (weekNum - 1) * 7));
