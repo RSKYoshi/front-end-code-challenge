@@ -1,6 +1,6 @@
 import React, {Component, useState} from 'react';
 
-
+let week;
 let newDate = new Date();
 let today = new Date();
 // let todayInt = getStartDay(today);
@@ -9,9 +9,26 @@ let today = new Date();
 //     return todayInt;
 // }
 
-const highlightDay = {
-    // backgroundColor: 'blue'
+const marginTop = {
+    marginTop: '5px'
+}
 
+
+export function incrementWeek(){
+    let nextWeek = [];
+    for (let i = 0; i < week.length; i++) {
+        //    need to add one to each here .map?
+        nextWeek = week.map(x => x + 7)
+    }
+    return nextWeek
+}
+export function decrementWeek(){
+    let previousWeek = [];
+    for (let i = 0; i < week.length; i++) {
+        //    need to add one to each here .map?
+        previousWeek = week.map(x => x - 7)
+    }
+    return previousWeek
 }
 
 
@@ -72,6 +89,7 @@ export function DateComponentMonth(){
     }
 }
 
+
 //below I need to loop through days like cards (each one will have the static letter of the day, and also the corresponding integer);
 export function WeekDays(){
 
@@ -79,20 +97,20 @@ export function WeekDays(){
     console.log('current week is '+ weekInt);
 
 //getDate is the integer representation of todays date (15, etc). getDay is integer representation of how far into a week today is (0-6)
-    let firstDay = today.getDate()-today.getDay();
-    let secondDay = firstDay + 1;
-    let thirdDay = firstDay + 2;
-    let fourthDay = firstDay + 3;
-    let fifthDay = firstDay + 4;
-    let sixthDay = firstDay + 5;
-    let seventhDay = firstDay +6;
+    let seventhDay = today.getDate()-today.getDay();
+    let firstDay = seventhDay +1;
+    let secondDay = seventhDay + 2;
+    let thirdDay = seventhDay + 3;
+    let fourthDay = seventhDay + 4;
+    let fifthDay = seventhDay + 5;
+    let sixthDay = seventhDay + 6;
 
     console.log(today.getDay());
 
-    const week = [firstDay, secondDay, thirdDay, fourthDay, fifthDay, sixthDay, seventhDay]
+    week = [firstDay, secondDay, thirdDay, fourthDay, fifthDay, sixthDay, seventhDay]
     console.log(week);
 
-    [fifthDay, highlightCurrentDay] = useState(fifthDay)
+    // [fifthDay, highlightCurrentDay] = useState(fifthDay)
 
 
     let currentDayInt = today.getDate();
@@ -102,34 +120,35 @@ export function WeekDays(){
     }
     console.log(currentDayInt);
 
-    function highlightCurrentDay() {
-        switch (week){
-            case currentDayInt===firstDay:
-                console.log('Sunday')
-                break;
+    // function highlightCurrentDay() {
+    //     switch (week){
+    //         case currentDayInt===firstDay:
+    //             console.log('Sunday')
+    //             break;
             // return document.querySelector('#firstDay').style('color','blue')
 //        need to add a style to #fDay
 //    need to highlight firstDay here
-            case currentDayInt===secondDay:
-                break;
-            case currentDayInt===thirdDay:
-                console.log('Tuesday')
-                break;
-            case currentDayInt===fourthDay:
-                // return document.querySelector('#fourthDay').style('color','blue')
-                console.log('Wednesday')
-                break;
-            case currentDayInt===fifthDay:
-                // [fifthDay, highlightDay] = useState(fifthDay)
-                break;
-            case currentDayInt===sixthDay:
-                console.log('Friday')
-                break;
-            case currentDayInt===seventhDay:
-                console.log('Saturday')
-                break;
-        }
-    }
+//             case currentDayInt===secondDay:
+//                 break;
+//             case currentDayInt===thirdDay:
+//                 console.log('Tuesday')
+//                 break;
+//             case currentDayInt===fourthDay:
+//                 // return document.querySelector('#fourthDay').style('color','blue')
+//                 console.log('Wednesday')
+//                 break;
+//             case currentDayInt===fifthDay:
+//                 // [fifthDay, highlightDay] = useState(fifthDay)
+//                 break;
+//             case currentDayInt===sixthDay:
+//                 console.log('Friday')
+//                 break;
+//             case currentDayInt===seventhDay:
+//                 console.log('Saturday')
+//                 break;
+//         }
+//     }
+
 
     const cardStyle = {
         listStyle: 'none',
@@ -151,49 +170,64 @@ export function WeekDays(){
                     <li style={dayCardStyle}>
                         <div>
                             <div>S</div>
-                            <div style={currentDayInt===firstDay ? {color: 'red'} : {firstDay} }>{firstDay}</div>
+                            <div style={marginTop}>
+                                <div style={currentDayInt===seventhDay ? { borderRadius:'2rem', color: 'white', height: '1.4rem', width: '1.43rem'} : {seventhDay} }>{seventhDay}</div>
+                            </div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
                         <div>
                             <div>M</div>
-                            <div style={currentDayInt===secondDay ? {color: 'red'} : {secondDay} }>{secondDay}</div>
+                            <div style={marginTop}>
+                                <div style={currentDayInt===firstDay ? {background:'#4b85cd', borderRadius:'2rem', color: 'white', height: '1.4rem', width: '1.43rem'} : {firstDay} }>{firstDay}</div>
+                            </div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
                         <div>
                             <div>T</div>
-                            <div style={currentDayInt===thirdDay ? {color: 'red'} : {thirdDay} }>{thirdDay}</div>
+                            <div style={marginTop}>
+                                <div style={currentDayInt===secondDay ? {background:'#4b85cd', borderRadius:'2rem', color: 'white', height: '1.4rem', width: '1.43rem'} : {secondDay} }>{secondDay}</div>
+                            </div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
                         <div>
-                            <div id='fourthDay'>W</div>
-                            <div style={currentDayInt===fourthDay ? {color:'red'} : {fourthDay} }>{fourthDay}</div>
+                            <div>W</div>
+                            <div style={marginTop}>
+                                <div style={currentDayInt===thirdDay ? {background:'#4b85cd', borderRadius:'2rem', color: 'white', height: '1.4rem', width: '1.43rem'} : {thirdDay} }>{thirdDay}</div>
+                            </div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
                         <div>
                             <div>T</div>
-                            <div style={currentDayInt===fifthDay ? {color:'red'} : {fifthDay} }>{fifthDay}</div>
+                            <div style={marginTop}>
+                                <div style={currentDayInt===fourthDay ? {background:'#4b85cd', borderRadius:'2rem', color: 'white', height: '1.4rem', width: '1.43rem'} : {fourthDay} }>{fourthDay}</div>
+                            </div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
                         <div>
                             <div>F</div>
-                            <div style={currentDayInt===sixthDay ? {color:'red'} : {sixthDay} }>{sixthDay}</div>
+                            <div style={marginTop}>
+                                <div style={currentDayInt===fifthDay ? {background:'#4b85cd', borderRadius:'2rem', color: 'white', height: '1.4rem', width: '1.43rem'} : {fifthDay} }>{fifthDay}</div>
+                            </div>
                         </div>
                     </li>
                     <li style={dayCardStyle}>
                         <div>
                             <div>S</div>
-                            <div>{seventhDay}</div>
+                            <div style={marginTop}>
+                                <div style={currentDayInt===sixthDay ? {background:'#4b85cd', borderRadius:'2rem', color: 'white', height: '1.4rem', width: '1.43rem'} : {sixthDay} }>{sixthDay}</div>
+                            </div>
                         </div>
                     </li>
                 </ul>
             </div>
         return dayCard;
     }
+
 
 
     //    'S', 'M', 'T', 'W', 'T', 'F', 'S'];

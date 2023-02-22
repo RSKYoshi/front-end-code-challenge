@@ -1,10 +1,17 @@
-import React, {Component} from 'react';
-import {DateComponentMonth} from "./date";
-import {DateComponentYear} from "./date";
+import React, {Component, useState} from 'react';
+import {DateComponentMonth} from './date';
+import {DateComponentYear} from './date';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
+
 export const Header = () => {
+
+    // [currentWeek, incrementWeek ] = useState(currentWeek);
+    // [currentWeek, decrementWeek ] = useState(currentWeek);
+
+
+
     // alert('test')
     const headerStyle = {
         color: '#4b85cd',
@@ -18,10 +25,15 @@ export const Header = () => {
 
     const buttonStyle = {
         marginLeft: 'auto',
+        // display: 'inline-block'
+    }
+
+    function test() {
+           alert('test')
+    //    increment dates here?
     }
 
     return (
-
         <header>
             <div style={headerStyle}>
                 <div style={monthStyle}>
@@ -31,13 +43,14 @@ export const Header = () => {
                     <DateComponentYear />
                 </div>
                 <div style={buttonStyle}>
-                    <ArrowBackIosIcon />
-                    <ArrowForwardIosIcon />
+                    {/*<span onClick={this.decrementWeek}>*/}
+                        <ArrowBackIosIcon />
+                    {/*</span>*/}
+                    {/*<span onClick={this.incrementWeek}>*/}
+                        <ArrowForwardIosIcon />
+                    {/*</span>*/}
                 </div>
-
-
             </div>
         </header>
-
     )
 }
